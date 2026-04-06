@@ -38,27 +38,13 @@ void setup() {
 }
 
 void loop() {
-  // indo
-  for (int angle = 0; angle <=150; angle++){
-   servo.write(angle);
-   delay(5);
+  float left = getWallsDistance(150);
+  float front = getWallsDistance(90);
+  float right = getWallsDistance(0);
 
-   float dist = readDistance();
+  Serial.print("L: "); Serial.print(left);
+  Serial.print(" F: "); Serial.print(front);
+  Serial.print(" R: "); Serial.println(right);
 
-   Serial.print(angle);
-   Serial.print(" / ");
-   Serial.println(dist);
-  }
-
-  // voltando
-  for (int angle = 150; angle >= 0; angle--) {
-    servo.write(angle);
-    delay(5);
-
-    long dist = readDistance();
-
-    Serial.print(angle);
-    Serial.print(",");
-    Serial.println(dist);
-  }
+  delay(100);
 }
