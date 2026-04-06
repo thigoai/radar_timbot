@@ -20,6 +20,14 @@ float readDistance(){
   return distance;
 }
 
+float getWallsDistance(int angle){
+  servo.write(angle);
+  delay(150);
+
+  return readDistance();
+}
+
+
 void setup() {
   Serial.begin(115200);
 
